@@ -1,63 +1,140 @@
 {
-  "version": 1,
-  "projects": {},
-  "cli": {
-    "defaultCollection": "@nrwl/workspace"
-  },
-  "schematics": {
-    "@nrwl/workspace": {
-      "library": {
-        "linter": "eslint"
-      }
+    "version": 1,
+    "projects": {
+        "mongo": {
+            "root": "libs/mongo",
+            "sourceRoot": "libs/mongo/src",
+            "projectType": "library",
+            "schematics": {},
+            "architect": {
+                "lint": {
+                    "builder": "@nrwl/linter:lint",
+                    "options": {
+                        "linter": "eslint",
+                        "config": "libs/mongo/.eslintrc",
+                        "tsConfig": [
+                            "libs/mongo/tsconfig.lib.json",
+                            "libs/mongo/tsconfig.spec.json"
+                        ],
+                        "exclude": ["**/node_modules/**", "!libs/mongo/**"]
+                    }
+                },
+                "test": {
+                    "builder": "@nrwl/jest:jest",
+                    "options": {
+                        "jestConfig": "libs/mongo/jest.config.js",
+                        "tsConfig": "libs/mongo/tsconfig.spec.json",
+                        "passWithNoTests": true
+                    }
+                },
+                "build": {
+                    "builder": "@nrwl/node:package",
+                    "options": {
+                        "outputPath": "dist/libs/mongo",
+                        "tsConfig": "libs/mongo/tsconfig.lib.json",
+                        "packageJson": "libs/mongo/package.json",
+                        "main": "libs/mongo/src/index.ts",
+                        "assets": ["libs/mongo/*.md"]
+                    }
+                }
+            }
+        },
+        "nest-mongo": {
+            "root": "libs/nest-mongo",
+            "sourceRoot": "libs/nest-mongo/src",
+            "projectType": "library",
+            "schematics": {},
+            "architect": {
+                "lint": {
+                    "builder": "@nrwl/linter:lint",
+                    "options": {
+                        "linter": "eslint",
+                        "config": "libs/nest-mongo/.eslintrc",
+                        "tsConfig": [
+                            "libs/nest-mongo/tsconfig.lib.json",
+                            "libs/nest-mongo/tsconfig.spec.json"
+                        ],
+                        "exclude": ["**/node_modules/**", "!libs/nest-mongo/**"]
+                    }
+                },
+                "test": {
+                    "builder": "@nrwl/jest:jest",
+                    "options": {
+                        "jestConfig": "libs/nest-mongo/jest.config.js",
+                        "tsConfig": "libs/nest-mongo/tsconfig.spec.json",
+                        "passWithNoTests": true
+                    }
+                },
+                "build": {
+                    "builder": "@nrwl/node:package",
+                    "options": {
+                        "outputPath": "dist/libs/nest-mongo",
+                        "tsConfig": "libs/nest-mongo/tsconfig.lib.json",
+                        "packageJson": "libs/nest-mongo/package.json",
+                        "main": "libs/nest-mongo/src/index.ts",
+                        "assets": ["libs/nest-mongo/*.md"]
+                    }
+                }
+            }
+        }
     },
-    "@nrwl/cypress": {
-      "cypress-project": {
-        "linter": "eslint"
-      }
+    "cli": {
+        "defaultCollection": "@nrwl/workspace"
     },
-    "@nrwl/react": {
-      "application": {
-        "linter": "eslint"
-      },
-      "library": {
-        "linter": "eslint"
-      }
-    },
-    "@nrwl/next": {
-      "application": {
-        "linter": "eslint"
-      }
-    },
-    "@nrwl/web": {
-      "application": {
-        "linter": "eslint"
-      }
-    },
-    "@nrwl/node": {
-      "application": {
-        "linter": "eslint"
-      },
-      "library": {
-        "linter": "eslint"
-      }
-    },
-    "@nrwl/nx-plugin": {
-      "plugin": {
-        "linter": "eslint"
-      }
-    },
-    "@nrwl/nest": {
-      "application": {
-        "linter": "eslint"
-      }
-    },
-    "@nrwl/express": {
-      "application": {
-        "linter": "eslint"
-      },
-      "library": {
-        "linter": "eslint"
-      }
+    "schematics": {
+        "@nrwl/workspace": {
+            "library": {
+                "linter": "eslint"
+            }
+        },
+        "@nrwl/cypress": {
+            "cypress-project": {
+                "linter": "eslint"
+            }
+        },
+        "@nrwl/react": {
+            "application": {
+                "linter": "eslint"
+            },
+            "library": {
+                "linter": "eslint"
+            }
+        },
+        "@nrwl/next": {
+            "application": {
+                "linter": "eslint"
+            }
+        },
+        "@nrwl/web": {
+            "application": {
+                "linter": "eslint"
+            }
+        },
+        "@nrwl/node": {
+            "application": {
+                "linter": "eslint"
+            },
+            "library": {
+                "linter": "eslint"
+            }
+        },
+        "@nrwl/nx-plugin": {
+            "plugin": {
+                "linter": "eslint"
+            }
+        },
+        "@nrwl/nest": {
+            "application": {
+                "linter": "eslint"
+            }
+        },
+        "@nrwl/express": {
+            "application": {
+                "linter": "eslint"
+            },
+            "library": {
+                "linter": "eslint"
+            }
+        }
     }
-  }
 }

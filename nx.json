@@ -1,14 +1,21 @@
 {
-  "npmScope": "dallastjames",
-  "implicitDependencies": {
-    "workspace.json": "*",
-    "package.json": {
-      "dependencies": "*",
-      "devDependencies": "*"
+    "npmScope": "dtj",
+    "implicitDependencies": {
+        "workspace.json": "*",
+        "package.json": {
+            "dependencies": "*",
+            "devDependencies": "*"
+        },
+        "tsconfig.json": "*",
+        "tslint.json": "*",
+        "nx.json": "*"
     },
-    "tsconfig.json": "*",
-    "tslint.json": "*",
-    "nx.json": "*"
-  },
-  "projects": {}
+    "projects": {
+        "mongo": {
+            "tags": []
+        },
+        "nest-mongo": {
+            "tags": []
+        }
+    }
 }

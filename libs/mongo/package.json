@@ -1,0 +1,7 @@
+{
+    "name": "@dtj/mongo",
+    "version": "0.0.2",
+    "peerDependencies": {
+        "mongodb": "^3.0.0"
+    }
+}

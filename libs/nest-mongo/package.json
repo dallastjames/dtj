@@ -1,0 +1,11 @@
+{
+    "name": "@dtj/nest-mongo",
+    "version": "0.0.1",
+    "dependencies": {
+        "@dtj/mongo": "^0.0.2",
+        "mongodb": "^3.0.0"
+    },
+    "peerDependencies": {
+        "@nestjs/common": "^6.0.0 || ^7.0.0"
+    }
+}
